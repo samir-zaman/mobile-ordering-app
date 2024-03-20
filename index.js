@@ -31,6 +31,7 @@ function handleAddClick(itemID){
     targetCustomerOrderObj.quantity += 1
     targetCustomerOrderObj.price = targetMenuObj.price * targetCustomerOrderObj.quantity
     console.log(customerOrder)
+    render()
 }
 
 
@@ -43,7 +44,7 @@ function getCustomerOrder(){
         orderSectionHtml += `
         <div class="order-item">
             <div class="name-and-remove-container">
-                <div class="order-item-name">${item.name}</div>
+                <div class="order-item-name">${item.name} (${item.quantity})</div>
                 <div class="remove-button">remove</div>
             </div>
             <div class="price">${item.price}</div>
