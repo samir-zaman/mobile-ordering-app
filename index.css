@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+} 
+
+
+/* ==========================
+        typography and icons
+============================= */
+
+#header-text{
+    color:white;
+    margin-left: 46px;
+}
+
+.add-button{
+    border: 1.5px solid #DEDEDE;
+    border-radius: 50%;
+    background-color: white;
+    height: 50px;
+    width: 50px; 
+    font-size: 27px;
+    font-weight: 200;
+    color: #3C3C3C;
+
+}
+
+/* ==========================
+        menu layout
+============================= */
+
+header {
+    background-image: url(./images/burger.png);
+    background-size: cover;
+    height: 167px; 
+    display: flex;
+    align-items: center;
+}
+
+
+.menu-item{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 46px; 
+    border-bottom: 1px solid lightgray;
+    padding: 51px 0; 
+}
+
+.menu-info{
+    display: flex;
+}
+
+.item-icon{
+    font-size: 78px; 
+    margin-right: 31px; 
+}
+
+/* ==========================
+    order summary layout
+============================= */
+
+/* ==========================
+    payment modal layout
+============================= */
