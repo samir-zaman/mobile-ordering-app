@@ -4,7 +4,7 @@ let customerOrder = []
 
 function createEmptyOrder(array){
     array.forEach(function(item){
-        const emptyItem = {name: item.name, quantity: 0, price: item.price}
+        const emptyItem = {name: item.name, quantity: 0, price: item.price, id: item.id}
         customerOrder.push(emptyItem)
     })
 }
@@ -34,23 +34,42 @@ function handleAddClick(itemID){
     render()
 }
 
+function handleRemoveClick(itemID){
+    const targetCustomerOrderObj = customerOrder.filter(function(item){
+        return item.id.toString() === itemID
+    })[0]
+    targetCustomerOrderObj.quantity -= 1
+    targetCustomerOrderObj.price = (targetCustomerOrderObj.price / (targetCustomerOrderObj.quantity + 1)) * targetCustomerOrderObj.quantity
+    render()
+}
+
 
 function getCustomerOrder(){
     let orderSectionHtml = ''
     const selectedItems = customerOrder.filter(function(item){
         return item.quantity > 0
     })
+    orderSectionHtml += `<div id="your-order">Your order</div>`
     selectedItems.forEach(function(item){
         orderSectionHtml += `
         <div class="order-item">
             <div class="name-and-remove-container">
                 <div class="order-item-name">${item.name} (${item.quantity})</div>
-                <div class="remove-button">remove</div>
+                <div class="remove-button" data-remove="${item.id}">remove</div>
             </div>
-            <div class="price">${item.price}</div>
+            <div class="price">$${item.price}</div>
         </div>
         `
     })
+    const totalPrice = selectedItems.reduce((accumulator, item) => 
+        accumulator += item.price, 0
+    )
+    orderSectionHtml += `
+    <div class="order-total">
+        <div>Total price:</div>
+        <div>$${totalPrice}</div>
+    </div>
+    <button id="order-button">Complete order</button>`
     return orderSectionHtml
 }
 
@@ -62,10 +81,10 @@ function getMenuHtml() {
             <div class="menu-item">
                 <div class="menu-info">
                     <div class="item-icon">${item.emoji}</div>
-                    <div class="menu-item-description">
-                        <h3>${item.name}</h3>
-                        <p>${item.ingredients}</p>
-                        <p>$${item.price}</p>
+                    <div>
+                        <h3 class="item-name">${item.name}</h3>
+                        <p class="item-ingredients">${item.ingredients}</p>
+                        <p class="item-price">$${item.price}</p>
                     </div>
                 </div>
                 <button class="add-button" data-add="${item.id}">+</button>
@@ -77,10 +96,7 @@ function getMenuHtml() {
 
 function render(){
     document.getElementById('menu').innerHTML = getMenuHtml()
-    document.getElementById('order-section').innerHTML=getCustomerOrder(customerOrder)
+    document.getElementById('order-section').innerHTML=getCustomerOrder()
 }
 
 render()
-
-
-console.log('TESTING')
