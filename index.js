@@ -11,6 +11,21 @@ function createEmptyOrder(array){
 createEmptyOrder(menuArray)
 
 
+function hideOrderSummary(){
+    const totalQuantity = customerOrder.reduce((accumulator, item) => 
+        accumulator += item.quantity, 0
+    )
+    /* Re-written as a ternary operator below
+
+    if (totalQuantity>0){
+        document.getElementById('order-section').classList.remove('hidden')
+    } else{
+        document.getElementById('order-section').classList.add('hidden')
+    }*/
+    totalQuantity > 0 ? 
+        document.getElementById('order-section').classList.remove('hidden') :
+        document.getElementById('order-section').classList.add('hidden')
+}
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.add){
@@ -30,7 +45,7 @@ function handleAddClick(itemID){
     })[0]
     targetCustomerOrderObj.quantity += 1
     targetCustomerOrderObj.price = targetMenuObj.price * targetCustomerOrderObj.quantity
-    console.log(customerOrder)
+    hideOrderSummary()
     render()
 }
 
@@ -40,6 +55,8 @@ function handleRemoveClick(itemID){
     })[0]
     targetCustomerOrderObj.quantity -= 1
     targetCustomerOrderObj.price = (targetCustomerOrderObj.price / (targetCustomerOrderObj.quantity + 1)) * targetCustomerOrderObj.quantity
+    console.log(customerOrder)
+    hideOrderSummary()
     render()
 }
 

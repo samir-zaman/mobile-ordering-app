@@ -150,6 +150,10 @@ header {
     margin-top: 53px; 
 }
 
+.hidden{
+    display: none;
+}
+
 /* ==========================
     payment modal layout
 ============================= */
