@@ -16,9 +16,24 @@
             <section id="order-section" class="hidden">
                 <!--order summary goes here-->
             </section>
+            <div data-order="payment-modal" class="hidden" id="payment-modal-container">
             <section id="payment-modal">
                 <!--payment form goes here-->
+                <form>
+                    <h1 id="popup-header">Enter card details</h1>
+                    <div>
+                    <input type="text" id="customer-name" placeholder="Enter your name"></input>
+                    </div>
+                    <div>
+                    <input type="text" id="customer-card-number" placeholder="Enter card number"></input>
+                    </div>
+                    <div>
+                    <input type="text" id="customer-cvv" placeholder="Enter CVV"></input>
+                    </div>
+                    <button type="submit" id="pay-button" class="big-button">Pay</button>
+                </form>
             </section>
+            </div>
         </main>
 	<script src="index.js" type="module"></script>
     </body>

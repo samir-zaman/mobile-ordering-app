@@ -34,6 +34,9 @@ document.addEventListener('click', function(e){
     else if(e.target.dataset.remove){
         handleRemoveClick(e.target.dataset.remove)
     }
+    else if(e.target.dataset.order){
+        document.getElementById('payment-modal-container').classList.toggle('hidden')
+    }
 })
 
 function handleAddClick(itemID){
@@ -86,7 +89,7 @@ function getCustomerOrder(){
         <div>Total price:</div>
         <div>$${totalPrice}</div>
     </div>
-    <button id="order-button">Complete order</button>`
+    <button id="order-button" class="big-button" data-order=orderButton>Complete order</button>`
     return orderSectionHtml
 }
 

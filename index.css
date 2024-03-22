@@ -136,7 +136,7 @@ header {
     margin-top: 31px; 
 }
 
-#order-button{
+.big-button{
     background: #16DB99;
     border: none;
     color: white; 
@@ -147,7 +147,10 @@ header {
     cursor: pointer;
     font-size: 16px;
     font-weight: 700; 
-    margin-top: 53px; 
+}
+
+#order-button{
+    margin-top: 53px;
 }
 
 .hidden{
@@ -157,3 +160,42 @@ header {
 /* ==========================
     payment modal layout
 ============================= */
+
+#payment-modal{
+    display: flex;
+    position: fixed;
+    top: 80px;    
+    left: 0;    
+    right: 0;
+    margin: auto;
+    padding: 0 24px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #8B8B8B;
+    border-radius: 5px;
+    width: 524px;
+    height: 542px;
+    background-color: white;
+}
+
+form input{
+    width: 475px;
+    border: 1.5px solid #757575;
+    border-radius: 3px;
+    font-size: 20px;
+    padding: 15px
+}
+
+form h1{
+    font-family: Verdana;
+    font-size: 24px;
+    text-align: center;
+}
+
+#pay-button{
+    margin-top: 46px;
+}
+
+form div{
+    margin-bottom: 23px;
+}
