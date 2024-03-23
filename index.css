@@ -200,3 +200,16 @@ form h1{
 form div{
     margin-bottom: 23px;
 }
+
+
+/* ==================================
+    Completed Order Message layout
+===================================== */
+#completed-order-text{
+    background-color:#ECFDF5;
+    color: #065F46;
+    font-size: 32px;
+    text-align: center;
+    padding: 50px 60px; 
+    margin-top: 45px;
+}

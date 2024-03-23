@@ -37,6 +37,10 @@ document.addEventListener('click', function(e){
     else if(e.target.dataset.order){
         document.getElementById('payment-modal-container').classList.toggle('hidden')
     }
+    else if(e.target.id === 'pay-button'){
+        e.preventDefault()
+        handlePayClick()
+    }
 })
 
 function handleAddClick(itemID){
@@ -61,6 +65,15 @@ function handleRemoveClick(itemID){
     console.log(customerOrder)
     hideOrderSummary()
     render()
+}
+
+function handlePayClick(){
+    document.getElementById('payment-modal').style.display = "none"
+    const customerName = document.getElementById('customer-name').value
+    document.getElementById('order-section').innerHTML = `
+        <div id="completed-order-text">
+            <p>Thanks, ${customerName}! Your order is on its way!</p>
+        </div>`
 }
 
 
